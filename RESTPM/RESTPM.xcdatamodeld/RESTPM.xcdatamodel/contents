@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Request" representedClassName="Request" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="type" attributeType="String" defaultValueString="GET"/>
+        <attribute name="urlString" attributeType="String"/>
+        <relationship name="statuses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Status" inverseName="request" inverseEntity="Status"/>
+    </entity>
+    <entity name="Status" representedClassName="Status" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="request" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Request" inverseName="statuses" inverseEntity="Request"/>
+    </entity>
+</model>
